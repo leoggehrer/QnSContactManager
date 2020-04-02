@@ -1,0 +1,86 @@
+@*@QnSCodeCopy*@
+@using Microsoft.AspNetCore.Mvc.Razor
+@using QnSContactManager.AspMvc.Modules.Session
+@using QnSContactManager.AspMvc.Models.Modules.Account
+@model LogonViewModel
+@*Begin:Header*@
+@{
+#if DEBUG
+    string currentView = ((RazorView)ViewContext.View).Path;
+    string beginLabel = $"<!--View Begin: '{currentView}'-->";
+    @Html.Raw(beginLabel)
+#endif
+}
+
+@{
+    SessionWrapper sessionWrapper = new SessionWrapper(Context.Session);
+    Func<string, string> translate = sessionWrapper.Translate;
+}
+@*End:Header*@
+
+<environment names="Development">
+    <link rel="stylesheet" href="~/css/logon.css" />
+</environment>
+<environment names="Staging,Production">
+    <link rel="stylesheet" href="~/css/logon.min.css" asp-append-version="true" />
+</environment>
+
+@{
+    string title = translate("Account");
+    string subTitle = translate("Please provide your user credentials to proceed:");
+    string submit = translate("Logon");
+    string forgotPassword = translate("Forgot your password?");
+
+    ViewData["Title"] = title;
+}
+
+<hr />
+
+<div class="vertical-flex-center">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h2>@title</h2>
+                <h4>@subTitle</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8 offset-2 text-center">
+                <div class="account-wall">
+                    <span class="profile-img text-center">
+                        <i class="fas fa-user"></i>
+                    </span>
+                    @using (Html.BeginForm("Logon", "Account", new { returnUrl = "" }, FormMethod.Post, null, new { @class = "form-signin", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                        <input name="@nameof(Model.ReturnUrl)" type="hidden" value="@Model.ReturnUrl" />
+                        <input name="@nameof(Model.IdentityUrl)" type="text" class="form-control" placeholder="@translate("Logon.IdentityUrl")" value="@Model.IdentityUrl" />
+                        <p></p>
+                        <input name="@nameof(Model.Email)" type="text" class="form-control" placeholder="@translate("Logon.EMail")" required autofocus />
+                        <p></p>
+                        <input name="@nameof(Model.Password)" type="password" class="form-control" placeholder="@translate("Logon.Password")" required />
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">
+                            @translate("Logon.Sign in")
+                        </button>
+                    }
+                    @if (Model.HasError)
+                    {
+                        <span class="field-validation-error" data-valmsg-for="Error" data-valmsg-replace="true">@Model.ActionError</span>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Begin:Footer*@
+@{
+#if DEBUG
+    string endLabel = $"<!--View Ende: '{currentView}'-->";
+
+    @Html.Raw(endLabel)
+#endif
+}
+@*End:Footer*@

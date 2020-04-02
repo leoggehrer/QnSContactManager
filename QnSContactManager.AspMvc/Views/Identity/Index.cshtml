@@ -1,0 +1,88 @@
+@*@QnSCodeCopy*@
+@using Microsoft.AspNetCore.Mvc.Razor
+@using QnSContactManager.AspMvc.Modules.Session
+@model IEnumerable<QnSContactManager.AspMvc.Models.Business.Account.AppAccess>
+@*Begin:Header*@
+@{
+#if DEBUG
+    string currentView = ((RazorView)ViewContext.View).Path;
+    string beginLabel = $"<!--View Begin: '{currentView}'-->";
+    @Html.Raw(beginLabel)
+#endif
+}
+
+@{
+    SessionWrapper sessionWrapper = new SessionWrapper(Context.Session);
+    Func<string, string> translate = sessionWrapper.Translate;
+}
+@*End:Header*@
+@{
+    string title = translate("Identity");
+
+    ViewData["Title"] = title;
+}
+
+<h1>@title</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-secondary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Identity.Name")
+            </th>
+            <th>
+                @Html.DisplayName("Identity.Email")
+            </th>
+            <th>
+                @Html.DisplayName("Identity.EnableJwtAuth")
+            </th>
+            <th>
+                @Html.DisplayName("Identity.AccessFailedCount")
+            </th>
+            <th>
+                @Html.DisplayName("Identity.State")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Identity.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Identity.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Identity.EnableJwtAuth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Identity.AccessFailedCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Identity.State)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+@*Begin:Footer*@
+@{
+#if DEBUG
+    string endLabel = $"<!--View Ende: '{currentView}'-->";
+
+    @Html.Raw(endLabel)
+#endif
+}
+@*End:Footer*@

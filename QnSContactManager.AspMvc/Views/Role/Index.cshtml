@@ -1,0 +1,69 @@
+@*@QnSCodeCopy*@
+@using Microsoft.AspNetCore.Mvc.Razor
+@using QnSContactManager.AspMvc.Modules.Session
+@model IEnumerable<QnSContactManager.AspMvc.Models.Persistence.Account.Role>
+@*Begin:Header*@
+@{
+#if DEBUG
+    string currentView = ((RazorView)ViewContext.View).Path;
+    string beginLabel = $"<!--View Begin: '{currentView}'-->";
+    @Html.Raw(beginLabel)
+#endif
+}
+
+@{
+    SessionWrapper sessionWrapper = new SessionWrapper(Context.Session);
+    Func<string, string> translate = sessionWrapper.Translate;
+}
+@*End:Header*@
+@{
+    string title = translate("Role");
+
+    ViewData["Title"] = title;
+}
+
+<h1>@title</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-secondary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Designation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Designation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*Begin:Footer*@
+@{
+#if DEBUG
+    string endLabel = $"<!--View Ende: '{currentView}'-->";
+
+    @Html.Raw(endLabel)
+#endif
+}
+@*End:Footer*@

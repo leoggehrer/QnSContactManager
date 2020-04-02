@@ -1,0 +1,56 @@
+@*@QnSCodeCopy*@
+@using Microsoft.AspNetCore.Mvc.Razor
+@using QnSContactManager.AspMvc.Modules.Session
+@model QnSContactManager.AspMvc.Models.Business.Account.AppAccess
+@*Begin:Header*@
+@{
+#if DEBUG
+    string currentView = ((RazorView)ViewContext.View).Path;
+    string beginLabel = $"<!--View Begin: '{currentView}'-->";
+    @Html.Raw(beginLabel)
+#endif
+}
+
+@{
+    SessionWrapper sessionWrapper = new SessionWrapper(Context.Session);
+    Func<string, string> translate = sessionWrapper.Translate;
+}
+@*End:Header*@
+@{
+    string title = translate("Details");
+
+    ViewData["Title"] = title;
+}
+
+<h1>@title</h1>
+<div class="d-flex bg-transparent">
+    <div class="p-sm-2 mr-auto">
+        <h4>Identity</h4>
+    </div>
+    <div class="p-sm-2">
+        <a asp-action="Index" class="btn btn-outline-dark" style="min-width: 8em;">@translate("Back to List")</a>
+    </div>
+    <div class="p-sm-2">
+        @Html.ActionLink(translate("Edit"), "Edit", new { id = Model.Id }, new { @class = "btn btn-secondary", style = "min-width: 8em;" })
+    </div>
+</div>
+<hr />
+
+<div style="margin-top: 1em;">
+    @await Html.PartialAsync("_IdentityDetails", Model.Identity)
+</div>
+
+<div style="margin-top: 1em;">
+    <h4>Rolen</h4>
+    @await Html.PartialAsync("_RoleListDetails", Model.Roles)
+</div>
+
+@*Begin:Footer*@
+@{
+#if DEBUG
+    string endLabel = $"<!--View Ende: '{currentView}'-->";
+
+    @Html.Raw(endLabel)
+#endif
+}
+@*End:Footer*@

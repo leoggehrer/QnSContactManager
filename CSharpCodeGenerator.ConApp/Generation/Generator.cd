@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CSharpCodeGenerator.ConApp.Generation.ClassGenerator">
+    <Position X="1.25" Y="1.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAggAAAAAAAICAAAAAAAAFAQBAAAAAAAABE=</HashCode>
+      <FileName>Generation\ClassGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSharpCodeGenerator.ConApp.Generation.EntityGenerator">
+    <Position X="0.5" Y="7.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAQAIEACAAAAABAAEAAAAACAAAIAEAAAAAAAAAQIAA=</HashCode>
+      <FileName>Generation\EntityGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSharpCodeGenerator.ConApp.Generation.Generator" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAEAKAAAACAQAABAACAEAAABAAgAAAIAAACAEgCAAQ=</HashCode>
+      <FileName>Generation\Generator.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SolutionProperties" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CSharpCodeGenerator.ConApp.Generation.ContractsProject" Collapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAICAIAACAAAAAABAAEACEAAAAACAEABQAA=</HashCode>
+      <FileName>Generation\ContractsProject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSharpCodeGenerator.ConApp.Generation.SolutionProperties" Collapsed="true">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARAIFApARgAlIAdACFAABIAGABsAUEBJiMIKQNIDSgA=</HashCode>
+      <FileName>Generation\SolutionProperties.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSharpCodeGenerator.ConApp.Generation.ControllerGenerator">
+    <Position X="5.75" Y="7.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAEAAAAAQAAAQAAAAAAAACAAEAAAAAAAIAAAAA=</HashCode>
+      <FileName>Generation\ControllerGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSharpCodeGenerator.ConApp.Generation.DataContextGenerator">
+    <Position X="7" Y="2.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAQAAAAAAQAAAAAAEAAAAAAAAAAAgA=</HashCode>
+      <FileName>Generation\DataContextGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSharpCodeGenerator.ConApp.Generation.FactoryGenerator">
+    <Position X="3" Y="7.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAIAAAAAAAIAAAAAAAAAAAAgAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Generation\FactoryGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSharpCodeGenerator.ConApp.Generation.TransferGenerator">
+    <Position X="8.5" Y="7.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAoEgAAAAAAICAAAAAAAAAAIAAEAAAAAAAAAAAIA=</HashCode>
+      <FileName>Generation\TransferGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

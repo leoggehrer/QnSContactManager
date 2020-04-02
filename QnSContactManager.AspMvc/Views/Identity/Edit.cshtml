@@ -1,0 +1,62 @@
+@*@QnSCodeCopy*@
+@using Microsoft.AspNetCore.Mvc.Razor
+@using Microsoft.AspNetCore.Mvc.Rendering
+@using QnSContactManager.AspMvc.Modules.Session
+@model QnSContactManager.AspMvc.Models.Business.Account.AppAccess
+@*Begin:Header*@
+@{
+#if DEBUG
+    string currentView = ((RazorView)ViewContext.View).Path;
+    string beginLabel = $"<!--View Begin: '{currentView}'-->";
+    @Html.Raw(beginLabel)
+#endif
+    SessionWrapper sessionWrapper = new SessionWrapper(Context.Session);
+    Func<string, string> translate = sessionWrapper.Translate;
+}
+@*End:Header*@
+
+@{
+    string title = Model.Id == 0 ? "Create" : "Edit";
+
+    title = translate(title);
+    ViewData["Title"] = title;
+}
+
+<h1>@title</h1>
+
+<form asp-action="IdentityEdit">
+    <div class="d-flex bg-transparent">
+        <div class="p-sm-2 mr-auto">
+            <h4>Identity</h4>
+        </div>
+    </div>
+    <hr />
+
+    @if (Model.HasError)
+    {
+        <span class="field-validation-error" data-valmsg-for="Error" data-valmsg-replace="true">@Model.ActionError</span>
+    }
+    <div style="margin-top: 1em;">
+        @await Html.PartialAsync("_IdentityEdit", Model.Identity)
+    </div>
+
+    @await Html.PartialAsync("_SubmitBack", new SubmitBackCmd())
+
+    <div style="margin-top: 1em;">
+        <h4>Rolen</h4>
+        @await Html.PartialAsync("_RoleListEdit", Model.Roles)
+    </div>
+</form>
+@*Begin:Footer*@
+@{
+#if DEBUG
+    string endLabel = $"<!--View Ende: '{currentView}'-->";
+
+    @Html.Raw(endLabel)
+#endif
+}
+@*End:Footer*@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

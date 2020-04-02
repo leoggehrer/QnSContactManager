@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Interface Name="QnSContactManager.Contracts.IIdentifiable">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IIdentifiable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="QnSContactManager.Contracts.ICopyable&lt;T&gt;">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ICopyable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="QnSContactManager.Contracts.Persistence.Account.IActionLog">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAABAAAAAAAAAAAAAAEAAAQQ=</HashCode>
+      <FileName>Persistence\Account\IActionLog.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="QnSContactManager.Contracts.Persistence.Account.IIdentity">
+    <Position X="2.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAACAAAAAAAAAAAAQBAAAABAACAAAABAAAAAA=</HashCode>
+      <FileName>Persistence\Account\IIdentity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="QnSContactManager.Contracts.Persistence.Account.IIdentityXRole">
+    <Position X="5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Persistence\Account\IIdentityXRole.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="QnSContactManager.Contracts.Persistence.Account.ILoginSession">
+    <Position X="7.75" Y="3" Width="1.5" />
+    <InheritanceLine Type="QnSContactManager.Contracts.ICopyable&lt;T&gt;" ManuallyRouted="true">
+      <Path>
+        <Point X="4.25" Y="1.603" />
+        <Point X="4.25" Y="2.052" />
+        <Point X="8.5" Y="2.052" />
+        <Point X="8.5" Y="3" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>QCBAAAAAACAAAQABAAAAAARAAAAAAAAAAAAACAgAAAA=</HashCode>
+      <FileName>Persistence\Account\ILoginSession.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="QnSContactManager.Contracts.Persistence.Account.IRole">
+    <Position X="4.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Persistence\Account\IRole.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

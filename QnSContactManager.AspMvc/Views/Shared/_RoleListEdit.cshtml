@@ -1,0 +1,40 @@
+@*@QnSCodeCopy*@
+@model IEnumerable<QnSContactManager.AspMvc.Models.Persistence.Account.Role>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Assigned)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Designation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int index = 0;
+
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <input class="form-check-input" type="checkbox" style="margin-left: 1em;" name="@($"Assigned[{item.Id}]")" id="@item.Id" @(item.Assigned ? "checked" : string.Empty) />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Designation)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
